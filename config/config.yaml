@@ -1,0 +1,52 @@
+# General system configuration
+
+# AWS Configuration (not needed if using Portkey)
+aws:
+  enabled: false  # Disable AWS Bedrock
+  region: us-east-1
+
+# System settings
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+output:
+  save_format: 
+    - text
+    - json
+  include_metadata: true
+
+# Workflow settings
+workflow:
+  max_retries: 3
+  timeout_seconds: 300
+  parallel_execution: false
+
+# Portkey configuration (global settings)
+portkey:
+  enabled: true
+  base_url: "URL_HERE"
+  api_key: "YOUR_API_KEY_HERE"
+  virtual_key: ""
+  model: "gpt-4o"
+  max_tokens: 3000
+
+# OpenAI configuration (fallback, optional)
+openai:
+  enabled: false  # Disable OpenAI unless needed as a fallback
+  model_id: "gpt-4"
+  api_base_url: "BASE_URL"
+
+# Risk Agent configuration
+risk_agent:
+  portkey:
+    enabled: true  # Use Portkey for risk analysis
+  openai:
+    enabled: false  # Disable OpenAI unless needed as a fallback
+
+# Loan Agent configuration
+loan_agent:
+  portkey:
+    enabled: true  # Use Portkey for loan decisions
+  openai:
+    enabled: false  # Disable OpenAI unless needed as a fallback
